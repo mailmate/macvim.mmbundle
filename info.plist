@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>funht+znvyzngr@jhzchf.bet</string>
+	<key>contactName</key>
+	<string>O'Shaughnessy Evans</string>
+	<key>description</key>
+	<string>Integration with text editor MacVim.</string>
+	<key>name</key>
+	<string>MacVim</string>
+	<key>uuid</key>
+	<string>08BF1E23-F39E-48E1-98C7-08D909A8CAA7</string>
+</dict>
+</plist>
