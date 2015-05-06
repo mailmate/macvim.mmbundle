@@ -6,7 +6,7 @@
 # Original author: O'Shaughnessy Evans <shaug+mailmate@wumpus.org>
 ##
 
-PATH=$HOME/bin:~/Applications/MacVim.app/Contents/MacOS:/Applications/MacVim.app/Contents/MacOS:$PATH
+PATH=$HOME/bin:~/Applications/MacVim.app/Contents/MacOS:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
 
 hash mvim 2>/dev/null && VISUAL=mvim || VISUAL=Vim
 
