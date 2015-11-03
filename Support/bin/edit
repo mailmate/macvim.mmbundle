@@ -2,14 +2,30 @@
 
 ##
 # edit: backend script of the MailMate MacVim bundle, used to invoke vim
-# 
+#
 # Original author: O'Shaughnessy Evans <shaug+mailmate@wumpus.org>
+#
+# 2015-11-02: Modified by Mark Sprevak <http://sites.google.com/site/msprevak>
+# - open buffer (fast), rather than launching new MacVim process (slow), for each message
+# - send arbitrary Ex commands to MacVim on opening message (default is `set filetype=markdown`)
 ##
 
-PATH=$HOME/bin:~/Applications/MacVim.app/Contents/MacOS:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
+MVIM=/usr/local/bin/mvim
+PATH=$HOME/bin:/usr/local/bin:$PATH
 
-hash mvim 2>/dev/null && VISUAL=mvim || VISUAL=Vim
+# Ex commands to run on opening message
+CMD=''\
+'set filetype=markdown | '\
+'redraw!'
 
-open -g -a Marked "$MM_EDIT_FILEPATH" 2>/dev/null
-$VISUAL -gf +$MM_LINE_NUMBER -c "set filetype=markdown" "$MM_EDIT_FILEPATH"
-osascript -e 'tell app "MailMate" to activate'
+# check if mvim already running
+SERVERS=$($MVIM --serverlist)
+
+if [ -z "$SERVERS" ]; then
+    # Open new mvim instance
+    $MVIM +"$CMD" "${MM_EDIT_FILEPATH}"
+else
+    # load file in current mvim instance
+    $MVIM --remote "${MM_EDIT_FILEPATH}"
+    $MVIM --remote-send ":$CMD<CR>"
+fi

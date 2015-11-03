@@ -2,6 +2,17 @@
 
 You can install this bundle in MailMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
 
+# Customization
+
+You can run arbitrary Ex commands on opening a message in MacVim.
+The command are set using the `CMD` variable inside `Support/bin/edit`.
+The default commands are:
+
+```
+set filetype=markdown
+redraw!
+```
+
 # License
 
 If not otherwise specified (see below), files in this repository fall under the following license:
