@@ -11,7 +11,7 @@
 ##
 
 MVIM=/usr/local/bin/mvim
-PATH=$HOME/bin:~/Applications/MacVim.app/Contents/MacOS:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Ex commands to run on opening message
 CMD=''\
